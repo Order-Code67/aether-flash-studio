@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  --afs-bg: #101318;
+  --afs-sidebar: #151a21;
+  --afs-workspace: #191f28;
+  --afs-card: #202833;
+  --afs-border: #303b49;
+  --afs-accent: #19c6c1;
+  --afs-accent-2: #438dff;
+  --afs-text: #e7edf5;
+  --afs-text-muted: #91a0b2;
+  --afs-success: #35c98b;
+  --afs-warning: #e6ad4c;
+  --afs-danger: #e45f69;
+  --afs-radius: 4px;
+}
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-graphite-950: #101318;
+  --color-graphite-900: #151a21;
+  --color-graphite-850: #191f28;
+  --color-graphite-800: #202833;
+  --color-graphite-700: #303b49;
+  --color-graphite-600: #3d4a5c;
+  --color-graphite-400: #91a0b2;
+  --color-graphite-300: #b7c4d4;
+  --color-graphite-100: #e7edf5;
+
+  --color-accent-teal: #19c6c1;
+  --color-accent-teal-dim: #129a96;
+  --color-accent-blue: #438dff;
+  --color-accent-blue-dim: #2f6fd6;
+  --color-danger: #e45f69;
+  --color-warning: #e6ad4c;
+  --color-success: #35c98b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--afs-text);
+  background: var(--afs-bg);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--afs-border);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.panel {
+  background: var(--afs-card);
+  border: 1px solid var(--afs-border);
+}
+
+.panel-inset {
+  background: color-mix(in srgb, var(--afs-bg) 55%, var(--afs-card));
+  border: 1px solid var(--afs-border);
+}
+
+.workspace-surface {
+  background: var(--afs-workspace);
+}
+
+.sidebar-surface {
+  background: var(--afs-sidebar);
+}
+
+.status-online {
+  color: var(--afs-success);
+}
+
+.status-bootloader {
+  color: var(--afs-accent-2);
+}
+
+.status-error {
+  color: var(--afs-danger);
+}
+
+.status-updating,
+.status-recovery {
+  color: var(--afs-warning);
+}
+
+.status-unknown,
+.status-offline {
+  color: var(--afs-text-muted);
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 1.6s ease-in-out infinite;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toast-enter {
+  animation: toast-in 160ms ease-out;
+}
